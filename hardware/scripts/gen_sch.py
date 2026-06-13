@@ -115,9 +115,10 @@ SYMBOLS = {
         ],
     },
     "BUCK_D36V28F5": {
+        # Off-board Pololu module, wired to a 3-pin header (VIN/GND/VOUT).
         "graphics": "(rectangle (start -7.62 -5.08) (end 7.62 5.08) (stroke (width 0.254) (type default)) (fill (type background)))",
-        "pins": [("1", "EN", -10.16, -2.54, 0), ("2", "VIN", -10.16, 2.54, 0),
-                 ("3", "GND", 10.16, -2.54, 180), ("4", "VOUT", 10.16, 2.54, 180)],
+        "pins": [("1", "VIN", -10.16, 2.54, 0), ("2", "GND", -10.16, -2.54, 0),
+                 ("3", "VOUT", 10.16, 2.54, 180)],
     },
 }
 

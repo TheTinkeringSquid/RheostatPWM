@@ -40,9 +40,12 @@ This re-runs DRC and rewrites the gerbers, drill, and BOM. (Note: re-running
   protect the wire run to the board.
 - **U1 (XIAO RP2040)** mounts on two 1×7 socket headers so it is removable; the
   USB-C connector is used for programming.
-- **U2 (Pololu D36V28F5)** is a module on a 1×4 header. **Verify the module's
-  pin order (EN / VIN / GND / VOUT) against its own silkscreen** before
-  soldering — module pinouts vary by revision.
+- **U2 (Pololu D36V28F5)** mounts **off-board** and is wired to the 3-pin
+  header labeled `OFF-BOARD BUCK` (`VIN` / `GND` / `VOUT 5V`). Run three short
+  wires from the module's matching pins to this header — **match label to
+  label**. This is orientation-proof, so the module's exact pin order does not
+  matter. The module's EN pin can be left unconnected (it is enabled by
+  default); PG is unused. Mount the module with double-sided tape or a standoff.
 - **Q1 (FQP27P06, TO-220)** is the high-side P-MOSFET. Leave clearance around the
   tab; add a small heatsink only if bench testing shows it running warm (it
   should stay cool at <1 A LED load).

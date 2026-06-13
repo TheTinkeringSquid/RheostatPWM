@@ -22,7 +22,7 @@ OUT = SCRIPT_DIR.parent / "b2500_cluster_pwm_dimmer_bom.csv"
 # Per-ref-prefix purchasing/assembly notes (brief BOM guidance).
 NOTES = {
     "U1": "Seeed XIAO RP2040 module on 2x7 socket headers",
-    "U2": "Pololu D36V28F5 buck module; VERIFY pin order vs silk",
+    "U2": "Pololu D36V28F5 buck module, mounted OFF-BOARD; wire its VIN/GND/VOUT to the 3-pin header (match label to label)",
     "Q1": ">=40V Vds, >=2A, low Rds(on); TO-220",
     "Q2": "small logic-level N-MOSFET / 2N7000",
     "F1": "OFF-BOARD: inline blade fuse in the vehicle harness; size to LED current",

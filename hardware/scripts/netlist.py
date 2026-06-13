@@ -25,8 +25,11 @@ COMPONENTS = [
      {"1": "VIN_PROT", "2": "GND"}, (140, 50)),
     ("C2",  "C", "100nF 50V", FP_C, False, True,
      {"1": "VIN_PROT", "2": "GND"}, (165, 50)),
-    ("U2",  "BUCK_D36V28F5", "Pololu D36V28F5", "b2500:Pololu_D36V28F5", False, True,
-     {"1": None, "2": "VIN_PROT", "3": "GND", "4": "5V_BUCK"}, (210, 50)),
+    # Pololu D36V28F5 mounts OFF-BOARD, wired to this 3-pin header so the
+    # connection is orientation-proof (match VIN/GND/VOUT label to label).
+    ("U2",  "BUCK_D36V28F5", "Pololu D36V28F5 (off-board, wired)",
+     "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", False, True,
+     {"1": "VIN_PROT", "2": "GND", "3": "5V_BUCK"}, (210, 50)),
     ("JP1", "HDR_1X02", "5V_LINK", "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical", False, True,
      {"1": "5V_BUCK", "2": "5V_JMP"}, (250, 50)),
     ("D3",  "D", "1N5819", "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal", False, True,

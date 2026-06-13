@@ -158,6 +158,10 @@ spec, assembly notes, and the bench/in-vehicle test procedures.
   footprint** sits across `PWM_OUT` — both for a cleaner, better-defined
   high-side switching edge with less ringing/EMI. Fit the snubber only if the
   bench scope shows ringing.
+- **The buck regulator (U2) mounts off-board**, wired to a labeled 3-pin
+  header (`VIN`/`GND`/`VOUT`). A footprint audit against the Pololu module
+  showed its on-board land is easy to get wrong (6 pins incl. an offset PG, two
+  GNDs); a wired connection is order-proof and far safer to assemble by hand.
 - **Two M3 mounting holes** (per the BOM, M1–M2), placed diagonally — the
   terminal block fills the left edge, so a top-left hole was not possible.
 - The board is routed by a **purpose-built script router**, not by hand in

@@ -55,7 +55,8 @@ PLACE = {
     "D2": (46, 13, 90),
     "C1": (54, 10, 90),
     "C2": (61, 9, 0),
-    "U2": (75, 14, 0),
+    # U2 is now a 3-pin header (VIN/GND/VOUT) for the off-board buck module.
+    "U2": (74, 12, 0),
     # 5 V path on the right
     "JP1": (87, 27, 90),
     "D3": (87, 42, 90),
@@ -105,6 +106,11 @@ SILK = [
     (47, 3, "Dodge B2500 Cluster LED PWM Dimmer  Rev A", 0, 1.0),
     (56, 28, "USB: DISCONNECT VEHICLE POWER FIRST", 0, 0.8),
     (47, 61, "CLUSTER ILLUMINATION ONLY - NOT SAFETY CRITICAL", 0, 1.0),
+    # U2 off-board buck header pin labels (pads at x=74, y=12/14.54/17.08).
+    (68, 8.5, "OFF-BOARD BUCK", 0, 0.7),
+    (76.5, 12, "VIN", 0, 0.7),
+    (76.5, 14.54, "GND", 0, 0.7),
+    (76.5, 17.08, "VOUT 5V", 0, 0.7),
 ]
 
 # Ground-stitch vias in open areas (clear of all footprint courtyards).
@@ -114,7 +120,7 @@ STITCH_VIAS = [(45, 38), (33, 34), (66, 28), (12, 48)]
 # PWM_OUT and the VIN_PROT trunk are routed explicitly before these (their
 # tracks become obstacles the autorouter avoids). GND is handled by the pours.
 SIGNAL_ROUTES = [
-    ("5V_BUCK", [("U2", "4"), ("JP1", "1")]),
+    ("5V_BUCK", [("U2", "3"), ("JP1", "1")]),
     ("5V_JMP",  [("JP1", "2"), ("D3", "2")]),
     ("5V_XIAO", [("D3", "1"), ("C4", "1"), ("U1", "14"), ("TP2", "1")]),
     ("3V3",     [("U1", "12"), ("D4", "2"), ("TP3", "1")]),
@@ -290,7 +296,7 @@ def main():
     #    around the dense middle of the board.
     if not router.net("VIN_PROT", W_POWER,
                       [("D1", "1"), ("D2", "1"), ("C1", "1"), ("C2", "1"),
-                       ("U2", "2"), ("Q1", "3"), ("D5", "1"), ("R6", "1"),
+                       ("U2", "1"), ("Q1", "3"), ("D5", "1"), ("R6", "1"),
                        ("TP1", "1")]):
         print("  WARN: net VIN_PROT not fully routed")
 

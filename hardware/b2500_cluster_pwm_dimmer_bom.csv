@@ -32,4 +32,4 @@ TP5,1,TP_PWM_GATE,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
 TP6,1,TP_PWM_OUT,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
 TP7,1,TP_GND,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
 U1,1,XIAO RP2040,b2500:XIAO_RP2040_THT,FIT,Seeed XIAO RP2040 module on 2x7 socket headers
-U2,1,Pololu D36V28F5,b2500:Pololu_D36V28F5,FIT,Pololu D36V28F5 buck module; VERIFY pin order vs silk
+U2,1,"Pololu D36V28F5 (off-board, wired)",Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,FIT,"Pololu D36V28F5 buck module, mounted OFF-BOARD; wire its VIN/GND/VOUT to the 3-pin header (match label to label)"
