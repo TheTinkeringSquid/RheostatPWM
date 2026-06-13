@@ -695,7 +695,7 @@
     (uuid "a9fc3039-492d-5bef-b71b-b62211ce58b2")
     (property "Reference" "Q2" (at 76.2 217.14 0) (effects (font (size 1.27 1.27))))
     (property "Value" "2N7000" (at 76.2 245.14 0) (effects (font (size 1.27 1.27))))
-    (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline" (at 76.2 231.14 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline_Wide" (at 76.2 231.14 0) (effects (font (size 1.27 1.27)) hide))
     (property "Datasheet" "" (at 76.2 231.14 0) (effects (font (size 1.27 1.27)) hide))
     (property "Description" "" (at 76.2 231.14 0) (effects (font (size 1.27 1.27)) hide))
     (pin "2" (uuid "8be281af-c31d-5977-b494-b68cbed57971"))
