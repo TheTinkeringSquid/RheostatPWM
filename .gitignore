@@ -1,0 +1,20 @@
+# PlatformIO
+firmware/.pio/
+
+# KiCad backups and caches
+*-backups/
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_prl
+fp-info-cache
+*.000
+*.bak
+
+# KiCad transient reports / previews
+hardware/kicad/erc.rpt
+hardware/kicad/drc.rpt
+hardware/kicad/svg_preview/
+
+# OS
+Thumbs.db
+.DS_Store
