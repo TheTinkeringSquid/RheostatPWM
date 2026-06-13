@@ -1,0 +1,35 @@
+Refs,Qty,Value,Footprint,Fit,Notes
+C1,1,47uF 50V,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,FIT,
+C2,1,100nF 50V,Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,FIT,
+C3,1,100nF,Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,FIT,
+C4,1,10uF,Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,FIT,
+C5,1,10nF 100V (DNP),Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,DNP,DNP RC snubber across PWM_OUT (fit only if edge ringing)
+D1,1,1N5822,Diode_THT:D_DO-201AD_P15.24mm_Horizontal,FIT,"reverse-polarity series Schottky, >=3A >=40V"
+D2,1,P6KE24CA,Diode_THT:D_DO-15_P10.16mm_Horizontal,FIT,TVS across protected VIN-GND
+D3,1,1N5819,Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,FIT,optional 5V isolation diode (USB backfeed)
+D4,1,BAT54S,Package_TO_SOT_SMD:SOT-23,FIT,ADC clamp to 3V3/GND
+D5,1,1N5242B 12V,Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal,FIT,"12V zener, Q1 gate-source protection"
+F1,1,"2A mini blade, INLINE IN HARNESS",,OFF-BOARD,OFF-BOARD: inline blade fuse in the vehicle harness; size to LED current
+J1,1,"Phoenix MKDS-1,5-5-5.08","TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5-5.08_1x05_P5.08mm_Horizontal",FIT,5-pos 5.08mm pluggable terminal (or locking automotive conn)
+JP1,1,5V_LINK,Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,FIT,open to isolate vehicle 5V during USB programming
+Q1,1,FQP27P06,Package_TO_SOT_THT:TO-220-3_Vertical,FIT,">=40V Vds, >=2A, low Rds(on); TO-220"
+Q2,1,2N7000,Package_TO_SOT_THT:TO-92_Inline_Wide,FIT,small logic-level N-MOSFET / 2N7000
+R1,1,100k (DNP),Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,DNP,DNP IGN-sense divider (future firmware)
+R10,1,100R (DNP),Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,DNP,DNP RC snubber across PWM_OUT (fit only if edge ringing)
+R2,1,22k (DNP),Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,DNP,DNP IGN-sense divider (future firmware)
+R3,1,100k 1%,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,FIT,
+R4,1,22k 1%,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,FIT,
+R5,1,1k,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,FIT,
+R6,1,10k,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,FIT,
+"R7,R8",2,100R,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,FIT,
+R9,1,100k,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,FIT,
+SW1,1,CAL,Button_Switch_THT:SW_PUSH_6mm,FIT,
+TP1,1,TP_VIN,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+TP2,1,TP_5V,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+TP3,1,TP_3V3,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+TP4,1,TP_DIM_ADC,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+TP5,1,TP_PWM_GATE,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+TP6,1,TP_PWM_OUT,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+TP7,1,TP_GND,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,FIT,
+U1,1,XIAO RP2040,b2500:XIAO_RP2040_THT,FIT,Seeed XIAO RP2040 module on 2x7 socket headers
+U2,1,Pololu D36V28F5,b2500:Pololu_D36V28F5,FIT,Pololu D36V28F5 buck module; VERIFY pin order vs silk
