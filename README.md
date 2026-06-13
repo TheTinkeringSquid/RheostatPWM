@@ -115,32 +115,36 @@ the real dimmer using the serial output. PWM defaults to 976 Hz (in the
 
 ---
 
-## PCB — finishing the layout
+## PCB
 
-The board is delivered **placed and ground-poured**, with the two high-current
-connector nets (`VIN_RAW`, `PWM_OUT`) pre-routed wide. The remaining signal nets
-are left as ratsnest for you to route in the KiCad GUI (there is no headless
-autorouter available). To finish it:
+The board is **fully routed and DRC-clean** (0 violations, 0 unconnected) —
+2 layers, 94 × 62 mm, ground pour on both. `hardware/scripts/gen_pcb.py`
+places every part, pours ground, and routes all nets with a built-in
+collision-aware router (Manhattan + maze fallback): high-current nets
+(`VIN_RAW`, `PWM_OUT`, `VIN_PROT`) at 1.5 mm, signals at 0.4 mm. The gerbers and
+drill files in `hardware/gerbers/` are ready to send to a fabricator.
+
+You don't need to touch KiCad to get the board made. If you *want* to inspect or
+tweak it:
 
 1. Open `hardware/kicad/b2500_cluster_pwm_dimmer.kicad_pro` in KiCad 10.
-2. In the PCB editor, route the ratsnest. Keep the `DIM_IN`/ADC network away
-   from the Q1 switching node, and route the `VIN_PROT` bus into the Q1 source
-   as a short, wide trace (it is intentionally left for you so you can place the
-   bulk-cap-to-MOSFET path by hand). The optional Freerouting plugin can do a
-   first pass if you prefer.
-3. Re-pour the zones (`Edit > Fill All Zones`) and run DRC until clean.
-4. Generate fabrication output:
+2. Make changes, run DRC, then regenerate fabrication output:
 
    ```powershell
    python hardware/scripts/export_fab.py
    ```
 
-   This runs DRC, then writes gerbers + Excellon drill to `hardware/gerbers/`
-   and regenerates the BOM. Until routing is complete it will warn that
-   unconnected (ratsnest) errors remain.
+   This runs DRC, writes gerbers + Excellon drill to `hardware/gerbers/`, and
+   regenerates the BOM. (Re-running `gen_pcb.py` regenerates the whole board
+   from scratch and will discard manual KiCad edits.)
 
-See [hardware/fabrication_notes.md](hardware/fabrication_notes.md) for board
-stackup, assembly notes, and the bench/in-vehicle test procedures.
+### Ordering the board
+
+Zip the contents of `hardware/gerbers/` and upload to any PCB fab (JLCPCB,
+PCBWay, OSH Park, Aisler, etc.): 2-layer, 1.6 mm, 1 oz copper (2 oz is a nice
+upgrade for the power path), HASL or ENIG. See
+[hardware/fabrication_notes.md](hardware/fabrication_notes.md) for the full
+spec, assembly notes, and the bench/in-vehicle test procedures.
 
 ---
 
@@ -156,8 +160,10 @@ stackup, assembly notes, and the bench/in-vehicle test procedures.
   bench scope shows ringing.
 - **Two M3 mounting holes** (per the BOM, M1–M2), placed diagonally — the
   terminal block fills the left edge, so a top-left hole was not possible.
-- **Signal nets are not yet routed** (see above), so final gerbers are produced
-  after you finish routing.
+- The board is routed by a **purpose-built script router**, not by hand in
+  KiCad. It is DRC-clean and electrically complete, but the trace paths are
+  Manhattan/maze-style rather than artistically dressed; feel free to prettify
+  in the GUI if you re-spin.
 - The XIAO USB-C port is not on a board edge; for in-place reflashing, prefer
   the UF2 bootloader or relocate U1 to an edge in a future revision.
 

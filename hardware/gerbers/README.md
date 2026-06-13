@@ -1,14 +1,16 @@
 # Gerbers
 
-This directory holds the fabrication output (gerbers + Excellon drill files).
+Fabrication output for the B2500 cluster PWM dimmer — RS-274X gerbers plus
+Excellon drill files (`-PTH.drl`, `-NPTH.drl`). The board is fully routed and
+DRC-clean, so these are **ready to manufacture**.
 
-It is **generated**, not hand-edited. The files are produced only after the
-signal nets have been routed in the KiCad GUI (see
-[../fabrication_notes.md](../fabrication_notes.md)). To generate them:
+To order: zip the contents of this directory and upload to any PCB fab
+(JLCPCB, PCBWay, OSH Park, Aisler, …). Settings: 2-layer, 1.6 mm, 1 oz copper
+(2 oz optional for the power path), HASL or ENIG.
+
+These files are generated, not hand-edited. Regenerate after any board change
+with:
 
 ```powershell
 python ../scripts/export_fab.py
 ```
-
-Until routing is complete and DRC is clean, do not send these files to a
-fabricator.

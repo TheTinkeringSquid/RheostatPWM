@@ -16,24 +16,22 @@
 | Finish          | HASL or ENIG, lead-free                                 |
 | Mounting        | 2 × M3 (GND-connected pads)                            |
 
-## ⚠️ Routing status — read before ordering
+## Routing status
 
-The committed `b2500_cluster_pwm_dimmer.kicad_pcb` is **placed and
-ground-poured with only the two high-current connector nets (`VIN_RAW`,
-`PWM_OUT`) routed.** All other signal nets are still ratsnest. **Do not send the
-gerbers to a fab until the remaining nets are routed and DRC is clean.**
+The committed `b2500_cluster_pwm_dimmer.kicad_pcb` is **fully routed and
+DRC-clean** (0 violations, 0 unconnected items). The gerbers and Excellon drill
+files in `hardware/gerbers/` are ready to send to a fabricator as-is.
 
-To finish and export:
+High-current nets (`VIN_RAW`, `PWM_OUT`, `VIN_PROT`) are routed at 1.5 mm,
+signals at 0.4 mm. The `DIM_IN`/ADC divider sits away from the Q1 switching node
+as the brief requires. To regenerate everything after any change:
 
-1. Open the project in KiCad 10, route the ratsnest in the PCB editor.
-2. Route the `VIN_PROT` bus from the bulk caps/D1 into the Q1 source as a short,
-   wide trace — this is the high-current load path and is intentionally left for
-   manual placement.
-3. Keep the `DIM_IN`/ADC divider network (R3/R4/R5/C3/D4) away from the Q1
-   switching node and the VIN input.
-4. `Edit > Fill All Zones`, then run DRC to zero errors.
-5. Run `python hardware/scripts/export_fab.py` to write gerbers + Excellon drill
-   into `hardware/gerbers/` and regenerate the BOM.
+```powershell
+python hardware/scripts/export_fab.py
+```
+
+This re-runs DRC and rewrites the gerbers, drill, and BOM. (Note: re-running
+`gen_pcb.py` rebuilds the board from scratch and discards manual KiCad edits.)
 
 ## Assembly notes
 
