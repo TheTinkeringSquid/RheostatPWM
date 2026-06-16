@@ -63,6 +63,15 @@ SYMBOLS = {
                       "(polyline (pts (xy -1.905 1.905) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.905)) (stroke (width 0.254) (type default)) (fill (type none)))"),
         "pins": [("1", "K", -5.08, 0, 0), ("2", "A", 5.08, 0, 180)],
     },
+    "LED": {
+        "graphics": ("(polyline (pts (xy -1.27 0) (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0)) (stroke (width 0.254) (type default)) (fill (type none)))"
+                      "(polyline (pts (xy -1.27 1.27) (xy -1.27 -1.27)) (stroke (width 0.254) (type default)) (fill (type none)))"
+                      "(polyline (pts (xy 0.5 1.6) (xy 1.7 2.8)) (stroke (width 0.15) (type default)) (fill (type none)))"
+                      "(polyline (pts (xy 1.1 2.8) (xy 1.7 2.8) (xy 1.7 2.2)) (stroke (width 0.15) (type default)) (fill (type none)))"
+                      "(polyline (pts (xy -0.3 2.0) (xy 0.9 3.2)) (stroke (width 0.15) (type default)) (fill (type none)))"
+                      "(polyline (pts (xy 0.3 3.2) (xy 0.9 3.2) (xy 0.9 2.6)) (stroke (width 0.15) (type default)) (fill (type none)))"),
+        "pins": [("1", "K", -5.08, 0, 0), ("2", "A", 5.08, 0, 180)],
+    },
     "D_TVS": {
         "graphics": ("(polyline (pts (xy 0 1.27) (xy 0 -1.27)) (stroke (width 0.254) (type default)) (fill (type none)))"
                       "(polyline (pts (xy -2.54 1.27) (xy 0 0) (xy -2.54 -1.27) (xy -2.54 1.27)) (stroke (width 0.254) (type default)) (fill (type none)))"

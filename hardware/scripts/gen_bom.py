@@ -37,6 +37,8 @@ NOTES = {
     "C5": "DNP RC snubber across PWM_OUT (fit only if edge ringing)",
     "R1": "DNP IGN-sense divider (future firmware)",
     "R2": "DNP IGN-sense divider (future firmware)",
+    "D6": "green power-on LED (lit whenever 12V is present); 3mm through-hole",
+    "R11": "series resistor for D6 power LED (~3 mA at 12 V)",
 }
 
 

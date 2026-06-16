@@ -72,6 +72,9 @@ PLACE = {
     "U1": (68, 42, 0),
     # optional cal button, open gap above the MCU
     "SW1": (57, 18, 0),
+    # green power-on LED + series resistor (top-right, near VIN_PROT)
+    "R11": (70, 20, 0),
+    "D6": (78, 20, 90),
     # gate drive, clustered near the MCU PWM pin; Q1_G runs down-left to Q1
     "R8": (55, 46, 0),
     "R9": (55, 50, 90),
@@ -111,6 +114,7 @@ SILK = [
     (76.5, 12, "VIN", 0, 0.7),
     (76.5, 14.54, "GND", 0, 0.7),
     (76.5, 17.08, "VOUT 5V", 0, 0.7),
+    (66, 24, "PWR", 0, 0.8),
 ]
 
 # Ground-stitch vias in open areas (clear of all footprint courtyards).
@@ -135,6 +139,7 @@ SIGNAL_ROUTES = [
     ("Q1_G",    [("Q1", "1"), ("R6", "2"), ("D5", "2"), ("R7", "2")]),
     ("SNUB",    [("R10", "2"), ("C5", "1")]),
     ("CAL_BTN", [("SW1", "1"), ("U1", "3")]),
+    ("LED_A", [("R11", "2"), ("D6", "2")]),
 ]
 
 
@@ -297,7 +302,7 @@ def main():
     if not router.net("VIN_PROT", W_POWER,
                       [("D1", "1"), ("D2", "1"), ("C1", "1"), ("C2", "1"),
                        ("U2", "1"), ("Q1", "3"), ("D5", "1"), ("R6", "1"),
-                       ("TP1", "1")]):
+                       ("TP1", "1"), ("R11", "1")]):
         print("  WARN: net VIN_PROT not fully routed")
 
     # -- bond duplicate same-net pads of a single footprint (e.g. the two

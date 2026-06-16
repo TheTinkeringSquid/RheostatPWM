@@ -74,6 +74,11 @@ COMPONENTS = [
     ("TP6", "TP", "TP_PWM_OUT", FP_TP, False, True, {"1": "PWM_OUT"}, (275, 230)),
     ("TP1", "TP", "TP_VIN", FP_TP, False, True, {"1": "VIN_PROT"}, (300, 230)),
     ("TP7", "TP", "TP_GND", FP_TP, False, True, {"1": "GND"}, (325, 230)),
+
+    # Green power-on indicator: lights whenever protected 12 V is present.
+    ("R11", "R", "3.3k", FP_R, False, True, {"1": "VIN_PROT", "2": "LED_A"}, (300, 170)),
+    ("D6",  "LED", "Green LED (PWR)", "LED_THT:LED_D3.0mm", False, True,
+     {"1": "GND", "2": "LED_A"}, (325, 170)),
 ]
 
 # Nets that legitimately land on a single board pad (the other end leaves the
