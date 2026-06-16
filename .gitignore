@@ -25,3 +25,7 @@ hardware/kicad/svg_preview/
 # OS
 Thumbs.db
 .DS_Store
+
+# Editor local history
+.history/
+**/.history/
