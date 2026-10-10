@@ -1,5 +1,5 @@
 # B2500 Cluster LED PWM Dimmer — Agent Instructions (Claude + Codex)
-<!-- CLAUDE.md and AGENTS.md are identical; edit both together. Router, not a diary: keep under ~100 lines. -->
+<!-- Single instruction file for Claude and Codex. CLAUDE.md only imports it (@AGENTS.md): edit THIS file, never CLAUDE.md. Router, not a diary: keep under ~100 lines. -->
 
 ## What this is
 A small RP2040 (Seeed XIAO) board for a 1996 Dodge B2500 instrument-cluster LED conversion. It reads the factory headlight rheostat as an analog input and drives the cluster illumination with a protected high-side 12 V PWM output. Repo: `TheTinkeringSquid/RheostatPWM`.
